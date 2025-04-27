@@ -16,6 +16,7 @@ public class MainClass {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         StudentService studentService = new StudentServiceImpl();
+
         boolean runProgram = true;
 
         int choice;
@@ -28,7 +29,23 @@ public class MainClass {
             switch (choice) {
                 case 1:
                     // take new date from user and add
-                    studentService.add(new Student());
+                    Student student = new Student();
+
+                    System.out.println("Enter student name: ");
+                    String name = scanner.next();
+
+                    System.out.println("Enter student roll number: ");
+                    Integer rollNo = scanner.nextInt();
+
+                    System.out.println("Enter student email: ");
+                    String email = scanner.next();
+
+
+                    student.setName(name);
+                    student.setRollNo(rollNo);
+                    student.setEmail(email);
+
+                    studentService.add(student);
                     break;
                 case 2:
                     // take index from user and remove
