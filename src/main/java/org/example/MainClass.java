@@ -4,6 +4,7 @@ import org.example.entities.Student;
 import org.example.service.StudentService;
 import org.example.service.StudentServiceImpl;
 
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -19,12 +20,13 @@ public class MainClass {
 
         boolean runProgram = true;
 
-        int choice;
-        System.out.println("Enter \n 1 to add \n 2 to remove \3 update \4 delete students \5 to exit program");
-        choice = scanner.nextInt();
+
 
 
         while (runProgram) {
+            int choice;
+            System.out.println("Enter \n 1 to add \n 2 to remove \n 3 update \n 4 fetch students \n 5 to exit program");
+            choice = scanner.nextInt();
 
             switch (choice) {
                 case 1:
@@ -46,9 +48,10 @@ public class MainClass {
                     student.setEmail(email);
 
                     studentService.add(student);
+                    System.out.println("Student added successfully !!!");
                     break;
                 case 2:
-                    // take index from user and remove
+                    // g
                     int indexToRemove = 0;
                     studentService.remove(indexToRemove);
                     break;
@@ -65,7 +68,11 @@ public class MainClass {
                     // delete student
                     // ask index
                     // delete in index
-                    studentService.remove(0);
+                    List<Student> students = studentService.getStudentList();
+                    System.out.println("-----Displaying all students in the list----");
+                    for (Student stdData : students) {
+                        System.out.println(stdData.getName() + " " + stdData.getRollNo() + " " + stdData.getEmail());
+                    }
                     break;
                 case 5:
                     runProgram = false;

@@ -35,6 +35,6 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public List<Student> getStudentList() {
-        return List.of();
+        return students;
     }
 }
