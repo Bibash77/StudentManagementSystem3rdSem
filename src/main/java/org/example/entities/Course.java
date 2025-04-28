@@ -10,6 +10,22 @@ public class Course {
 
     private Integer courseId;
 
+    private String courseName;
+
+    private Date startDate;
+
+    private Date endDate;
+
+    public Course(Integer courseId, String courseName, Date startDate, Date endDate) {
+        this.courseId = courseId;
+        this.courseName = courseName;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
+
+    public Course() {
+    }
+
     public String getCourseName() {
         return courseName;
     }
@@ -41,10 +57,4 @@ public class Course {
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
-
-    private String courseName;
-
-    private Date startDate;
-
-    private Date endDate;
 }

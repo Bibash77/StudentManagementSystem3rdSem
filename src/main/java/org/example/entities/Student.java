@@ -1,5 +1,6 @@
 package org.example.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,7 +12,7 @@ public class Student {
     private String name;
     private Integer rollNo;
     private String email;
-    private List<Course> course;
+    private List<Course> course = new ArrayList<>();
 
 
     public List<Course> getCourse() {

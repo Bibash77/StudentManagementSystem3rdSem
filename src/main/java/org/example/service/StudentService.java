@@ -1,5 +1,6 @@
 package org.example.service;
 
+import org.example.entities.Course;
 import org.example.entities.Student;
 
 import java.util.List;
@@ -26,4 +27,8 @@ public interface StudentService {
     // get
 
     List<Student> getStudentList();
+
+    void enroll(int index, Course course);
+
+
 }

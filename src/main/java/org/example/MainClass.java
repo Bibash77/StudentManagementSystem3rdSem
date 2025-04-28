@@ -1,9 +1,11 @@
 package org.example;
 
+import org.example.entities.Course;
 import org.example.entities.Student;
 import org.example.service.StudentService;
 import org.example.service.StudentServiceImpl;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,12 +22,9 @@ public class MainClass {
 
         boolean runProgram = true;
 
-
-
-
         while (runProgram) {
             int choice;
-            System.out.println("Enter \n 1 to add \n 2 to remove \n 3 update \n 4 fetch students \n 5 to exit program");
+            System.out.println("Enter \n 1 to add \n 2 to remove \n 3 update \n 4 fetch students \n 5 to exit program \n 6 enroll in course");
             choice = scanner.nextInt();
 
             switch (choice) {
@@ -65,24 +64,45 @@ public class MainClass {
                     // ask user to enter new name and update at that index
                     break;
                 case 4:
-                    // delete student
+                    // fetch student
                     // ask index
                     // delete in index
                     List<Student> students = studentService.getStudentList();
                     System.out.println("-----Displaying all students in the list----");
                     for (Student stdData : students) {
                         System.out.println(stdData.getName() + " " + stdData.getRollNo() + " " + stdData.getEmail());
+
+                       if(stdData.getCourse() != null) {
+                           for (Course course : stdData.getCourse()) {
+                               System.out.println(course.getCourseId() + " " + course.getCourseName());
+                           }
+                       }
                     }
                     break;
                 case 5:
                     runProgram = false;
                     break;
+
+                case 6:
+                    System.out.println("Enter Student Index");
+                    Integer studentIndex = scanner.nextInt();
+
+                    System.out.println("Enter Course Id");
+                    Integer courseId = scanner.nextInt();
+
+                    scanner.nextLine();
+
+                    System.out.println("Enter Course Name");
+                    String courseName = scanner.next();
+
+                    Course course = new Course(courseId, courseName, null, null);
+
+                    studentService.enroll(studentIndex, course);
+
+                    break;
                     default:
                         System.out.println("Invalid choice");
             }
-
-
-
 
         }
     }
