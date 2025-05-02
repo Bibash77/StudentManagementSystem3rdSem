@@ -2,6 +2,8 @@ package org.example.service;
 
 import org.example.entities.Course;
 import org.example.entities.Student;
+import org.example.service.file.FileService;
+import org.example.service.file.FileServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,11 +13,13 @@ import java.util.List;
  * @created 2025-04-27
  */
 public class StudentServiceImpl implements StudentService {
+    FileService fileService = new FileServiceImpl();
     List<Student> students = new ArrayList<>();
 
     @Override
     public void add(Student student) {
         students.add(student);
+        fileService.writeFile(student.getRollNo().toString(), "Student Added !!!!" + student.getName());
     }
 
     @Override

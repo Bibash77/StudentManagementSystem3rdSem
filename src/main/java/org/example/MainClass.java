@@ -24,7 +24,7 @@ public class MainClass {
 
         while (runProgram) {
             int choice;
-            System.out.println("Enter \n 1 to add \n 2 to remove \n 3 update \n 4 fetch students \n 5 to exit program \n 6 enroll in course");
+            System.out.println("Enter \n 1 to add \n 2 to remove \n 3 update \n 4 fetch students \n 5 to exit program \n 6 enroll in course \n Write log");
             choice = scanner.nextInt();
 
             switch (choice) {
