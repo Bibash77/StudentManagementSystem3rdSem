@@ -1,5 +1,6 @@
 package org.example.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,7 @@ import java.util.List;
  * @author Bibash Bogati
  * @created 2025-04-27
  */
-public class Student {
+public class Student implements Serializable {
 
     private String name;
     private Integer rollNo;

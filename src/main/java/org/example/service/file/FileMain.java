@@ -1,9 +1,5 @@
-package org.example;
+package org.example.service.file;
 
-import org.example.service.file.FileService;
-import org.example.service.file.FileServiceImpl;
-
-import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -22,7 +18,6 @@ public class FileMain {
 
         String studnetName = "TestStudent";
         fileService.writeFile(studnetName, data);
-
 
         fileService.readFile(studnetName);
 
