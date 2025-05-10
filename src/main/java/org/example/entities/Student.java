@@ -10,8 +10,18 @@ import java.util.List;
  */
 public class Student implements Serializable {
 
+    private Integer id;
     private String name;
     private Integer rollNo;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     private String email;
     private List<Course> course = new ArrayList<>();
 

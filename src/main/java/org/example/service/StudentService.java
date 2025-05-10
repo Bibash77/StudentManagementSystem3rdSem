@@ -18,7 +18,7 @@ public interface StudentService {
     void remove(int index);
 
     // update
-    void update(int index, Student student);
+    void update(int id, Student student);
 
 
     // print

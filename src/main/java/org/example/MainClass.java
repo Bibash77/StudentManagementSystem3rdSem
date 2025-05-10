@@ -59,6 +59,13 @@ public class MainClass {
                     // update students...
                     // ask user index
 
+                    System.out.println("Enter Student ID: ");
+                    int id = scanner.nextInt();
+
+                    //
+
+
+                    studentService.update(id, new Student());
                     // fetch data for that index and display data
 
                     // ask user to enter new name and update at that index

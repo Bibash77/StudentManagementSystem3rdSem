@@ -4,6 +4,7 @@ import org.example.entities.Course;
 import org.example.entities.Student;
 import org.example.service.file.FileService;
 import org.example.service.file.FileServiceImpl;
+import org.example.service.studentDao.StudentDaoServiceImpl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,10 +16,11 @@ import java.util.List;
 public class StudentServiceImpl implements StudentService {
     FileService fileService = new FileServiceImpl();
     List<Student> students = new ArrayList<>();
+    StudentDaoServiceImpl studentDaoService = new StudentDaoServiceImpl();
 
     @Override
     public void add(Student student) {
-        students.add(student);
+        studentDaoService.addStudent(student);
         fileService.writeFile(student.getRollNo().toString(), "Student Added !!!!" + student.getName());
     }
 
@@ -28,8 +30,9 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void update(int index, Student student) {
+    public void update(int id, Student student) {
 
+        studentDaoService.updateStudent(student);
     }
 
     @Override
@@ -39,6 +42,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public List<Student> getStudentList() {
+        List<Student> students = studentDaoService.getStudents();
         return students;
     }
 
@@ -54,4 +58,7 @@ public class StudentServiceImpl implements StudentService {
 
 
     }
+
+
+
 }
