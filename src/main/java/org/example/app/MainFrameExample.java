@@ -74,14 +74,13 @@ public class MainFrameExample {
         systemFrame.add(descriptionArea);
 
         // Submit button
-        JButton jButton = new JButton("Submit");
-        jButton.setBounds(130, 260, 100, 30);
-        systemFrame.add(jButton);
+        JButton submitButton = new JButton("Submit");
+        submitButton.setBounds(130, 260, 100, 30);
+        systemFrame.add(submitButton);
 
-        jButton.addActionListener(new ActionListener() {
+        submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-
                     String name = nameField.getText();
                     String gender = maleButton.isSelected() ? "Male" : "Female";
 
